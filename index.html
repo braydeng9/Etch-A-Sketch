@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button>Size Changer</button>
+    <div id='container'>
+
+    </div>
+
+</body>
+
+<script>
+var i;
+var container = document.querySelector('#container');
+for (i = 0; i < 16; i++) {
+    var div = document.createElement('div');
+    div.classList.add('box');
+    container.appendChild(div);
+};
+var boxes = document.querySelectorAll('.box');
+boxes.forEach((box)=> {
+    box.addEventListener('mouseover', (e) => {
+        e.target.style.background = 'blue';
+    });
+    // box.addEventListener('mouseout', (e) => {
+    //     e.target.style.background = 'white';
+    // });
+})
+
+    // box.addEventListener('mouseout', (e) => {
+    //     box.style.background = "white";
+    // })  
+</script>
+</html>

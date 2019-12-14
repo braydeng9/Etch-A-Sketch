@@ -1,0 +1,12 @@
+#container{
+    display:grid;
+    outline-style: solid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(4, 25%);
+    height: 20em;
+    width: 20em;
+}
+
+button{
+    margin:2em;
+}
