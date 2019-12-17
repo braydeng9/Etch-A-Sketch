@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button>Size Changer</button>
+    <button id='changer'>Size Changer</button>
     <button id='clear'>Clear</button>
     <div id='container'>
 
@@ -13,9 +13,16 @@
 </body>
 
 <script>
+
+var size = 16;
+
+
+
+
 var i;
-var container = document.querySelector('#container');
-for (i = 0; i < 256; i++) {
+const container = document.querySelector('#container');
+container.style.gridTemplateColumns = 'repeat(size,auto)';
+for (i = 0; i < size*size; i++) {
     var div = document.createElement('div');
     div.classList.add('box');
     container.appendChild(div);
@@ -36,6 +43,21 @@ clear.addEventListener('click', (e) => {
         box.style.background = 'white';
     });
 });
+
+const changer = document.querySelector('#changer');
+changer.addEventListener('click', (e) => {
+    boxes.forEach((box) => {
+        box.outerHTML = "";
+    });
+    var size = prompt("What size?");
+    console.log(size);
+    for (i = 0; i < size*size; i++) {
+    var div = document.createElement('div');
+    div.classList.add('box');
+    container.appendChild(div);
+    };
+});
+
 
     // box.addEventListener('mouseout', (e) => {
     //     box.style.background = "white";
