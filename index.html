@@ -5,6 +5,7 @@
 </head>
 <body>
     <button>Size Changer</button>
+    <button id='clear'>Clear</button>
     <div id='container'>
 
     </div>
@@ -14,12 +15,12 @@
 <script>
 var i;
 var container = document.querySelector('#container');
-for (i = 0; i < 16; i++) {
+for (i = 0; i < 256; i++) {
     var div = document.createElement('div');
     div.classList.add('box');
     container.appendChild(div);
 };
-var boxes = document.querySelectorAll('.box');
+const boxes = document.querySelectorAll('.box');
 boxes.forEach((box)=> {
     box.addEventListener('mouseover', (e) => {
         e.target.style.background = 'blue';
@@ -27,7 +28,14 @@ boxes.forEach((box)=> {
     // box.addEventListener('mouseout', (e) => {
     //     e.target.style.background = 'white';
     // });
-})
+});
+
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', (e) => {
+    boxes.forEach((box)=> {
+        box.style.background = 'white';
+    });
+});
 
     // box.addEventListener('mouseout', (e) => {
     //     box.style.background = "white";
