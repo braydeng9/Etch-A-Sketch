@@ -21,7 +21,7 @@ var size = 16;
 
 var i;
 const container = document.querySelector('#container');
-container.style.gridTemplateColumns = 'repeat(size,auto)';
+
 for (i = 0; i < size*size; i++) {
     var div = document.createElement('div');
     div.classList.add('box');
@@ -52,13 +52,27 @@ changer.addEventListener('click', (e) => {
     var size = prompt("What size?");
     console.log(size);
     for (i = 0; i < size*size; i++) {
-    var div = document.createElement('div');
-    div.classList.add('box');
-    container.appendChild(div);
+        var div = document.createElement('div');
+        div.classList.add('box');
+        container.style.gridTemplateColumns = "repeat("+size+","+100/size+"%)";
+        container.style.gridTemplateRows = "repeat("+size+","+100/size+"%)";
+        container.style.width = "20em";
+        container.style.height = "20em";
+        container.appendChild(div);
     };
+const boxes2 = document.querySelectorAll('.box');
+boxes2.forEach((box)=> {
+    box.addEventListener('mouseover', (e) => {
+        e.target.style.background = 'blue';
+    });
+    // box.addEventListener('mouseout', (e) => {
+    //     e.target.style.background = 'white';
+    // });
+});
 });
 
 
+console.log("Done");
     // box.addEventListener('mouseout', (e) => {
     //     box.style.background = "white";
     // })  
